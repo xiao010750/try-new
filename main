@@ -1,0 +1,5 @@
+nc <- nc_open("tmp_2018.nc") 
+lon <- ncvar_get(nc, "lon") lat <- ncvar_get(nc, "lat") time <- ncvar_get(nc, "time") 
+lon_idx <- which.min(abs(lon - 120)) ;lat_idx <- which.min(abs(lat - 30)) 
+temperature <- ncvar_get(nc, "tmp") # Close the NetCDF file nc_close(nc) 
+temperature_point <- temperature[lon_idx, lat_idx, ] 
